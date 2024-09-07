@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "faststream-deadline-propagation"
+version = "0.1.0"
+description = "A middleware for the FastStream framework that provides deadline-propagation in Remote Procedure Call requests"
+repository = "https://github.com/ulbwa/faststream-deadline-propagation"
+authors = ["ульба <ulbwa@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+faststream = "^0.5.18"
+
+[tool.ruff]
+select = ["E", "F", "W", "Q", "I"]
+
+fixable = ["ALL"]
+unfixable = []
+
+line-length = 89
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
