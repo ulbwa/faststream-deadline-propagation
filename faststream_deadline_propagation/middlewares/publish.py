@@ -6,7 +6,7 @@ from typing import Any, Callable
 from faststream import BaseMiddleware
 from faststream.types import AsyncFunc
 
-from faststream_deadline_propagation.defaults import DEFAULT_HEADER, DEFAULT_TIMEOUT
+from faststream_deadline_propagation.defaults import DEFAULT_HEADER
 
 
 class DeadlinePublishMiddleware(BaseMiddleware):
@@ -39,7 +39,7 @@ class DeadlinePublishMiddleware(BaseMiddleware):
         elif "rpc_timeout" in kwargs:
             timeout = kwargs["rpc_timeout"]
         else:
-            timeout = DEFAULT_TIMEOUT
+            raise ValueError("Either timeout or rpc_timeout must be provided.")
 
         deadline = datetime.fromtimestamp(time() + timeout)
         kwargs["headers"][self.header] = deadline.isoformat()
