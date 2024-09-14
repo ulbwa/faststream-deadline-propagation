@@ -10,6 +10,10 @@ from faststream_deadline_propagation.defaults import DEFAULT_HEADER
 
 
 class DeadlinePublishMiddleware(BaseMiddleware):
+    header: str
+
+    __slots__ = "msg", "header"
+
     def __init__(self, msg: Any, *, header: str):
         self.header = header
 
